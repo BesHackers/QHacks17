@@ -11,6 +11,25 @@
   background-color: #4CAF50;
 }
 
+
+.navbar-brand img {
+	width: 40%;
+}
+
+#box {
+    width: 300px;
+    border: 25px solid black;
+    padding: 25px;
+    margin: 25px;
+}
+
+#box2{
+    width: 300px;
+    border: 25px solid black;
+    padding: 25px;
+    margin: 25px;
+
+
 img[draggable=true] {
   cursor: grab;
 }

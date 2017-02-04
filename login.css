@@ -1,3 +1,15 @@
+body {
+	background-image: url("img/food.jpg");background-size: cover;
+}
+
+header {
+	background: transparent !important;
+}
+
+.navbar-brand img {
+	width: 40%;
+}
+
 #loginHolder
 {
 	margin-top:30px;
