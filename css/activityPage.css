@@ -16,14 +16,14 @@
 	width: 40%;
 }
 
-#box {
+#div1 {
     width: 300px;
     border: 25px solid black;
     padding: 25px;
     margin: 25px;
 }
 
-#box2{
+#div2{
     width: 300px;
     border: 25px solid black;
     padding: 25px;
