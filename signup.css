@@ -2,6 +2,10 @@ body {
 	background-image: url("img/food.jpg");
 }
 
+.navbar-brand img {
+	width: 40%;
+}
+
 #customSignup
 {
 
