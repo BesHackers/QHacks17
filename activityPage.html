@@ -9,24 +9,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Nutrify! </title>
+    <title>Nutrify!</title>
 
 	<!-- custom css -->
 	<link href="css/activityPage.css" rel="stylesheet">
-	
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Theme CSS -->
-    <link href="css/agency.min.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+  <!-- Theme CSS -->
+  <link href="css/agency.min.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="js/activityPage.js" defer></script>
 </head>
 
 <body id="page-top" class="index">
@@ -81,7 +83,7 @@
             </div>
         </div>
     </header>
-	
+
 	<!-- activity page -->
 	<div class="container-fluid">
 		<div class="row">
@@ -98,14 +100,15 @@
 			</div>
 		</div>
 		<div class="row">
-			<div id="box" class="col-md-6">
-				box
-			</div>
-			<div id="box2" class="col-md-6">
-				1 of 3
-			</div>
+      <div><h2>Making your shopping list!!!</h2>
+      <p>Drag the stuff you wanna buy back and forth between the two div elements.</p></div>
+      <div id="div1" class="box col-md-6" ondrop="drop1(event)" ondragover="allowDrop(event)">
+        <img src="try.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="30" height="30">
+        <img src="try.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="30" height="30">
+      </div>
+      <div id="div2" class="box col-md-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+      </div>
 		</div>
+    <br>
   </div>
-</div>
-	
-	
+</body>
