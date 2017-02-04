@@ -37,6 +37,18 @@ function drop(ev) {
     nodeCopy.id = "newId" + (x++); /* We cannot use the same ID */
     ev.target.appendChild(document.createTextNode(" "));
   	ev.target.appendChild(nodeCopy);
+	var elem = document.getElementById("myBar");   
+	var width = 10;
+	var id = setInterval(frame, 10);
+	function frame() {
+		if (width >= 100) {
+			clearInterval(id);
+		} else {
+			width++; 
+			elem.style.width = width + '%'; 
+			document.getElementById("label").innerHTML = width * 1  + '%';
+		}
+	}
   }
 }
 
@@ -50,4 +62,17 @@ function drop1(ev){
   var data = ev.dataTransfer.getData("element_id");
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
+	var elem = document.getElementById("myProgress");   
+	var width = 100;
+	var id = setInterval(frame, 10);
+	function frame() {
+    if (width <= 10) {
+      clearInterval(id);
+    } else {
+      width--; 
+      elem.style.width = width + '%'; 
+      document.getElementById("label").innerHTML = width * 1  + '%';
+    }
+	}
 }
+
