@@ -11,14 +11,12 @@
 
     <title>Nutrify!</title>
 
-	<link href="login.css" rel="stylesheet" type="text/css">
-	<link href="main.css" rel="stylesheet">
-
-	<!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-
+	<!-- custom css -->
+	<link href="profilePage.css" rel="stylesheet">
+	
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -26,14 +24,19 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-	 <link href="css/agency.min.css" rel="stylesheet">
-	 <link href="css/agency.css" rel="stylesheet">
+	
+    <!-- Theme CSS -->
+    <link href="css/agency.min.css" rel="stylesheet">
+	<link href="css/agency.css" rel="stylesheet">
+
+	
+	
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index>
 
-<!-- Navigation -->
+    <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -73,50 +76,86 @@
     </nav>
 
 
-    <!-- Header -->
-	
-    <div class="intro-header">
-        <div class="container">
-			<br></br>
-			<br></br>
-			<br></br>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="loginHolder">
-                        <div id="customLogin">
-							<form action="search.php" method="post">
-								<!--div id="AvatarHolder">
-									<img id="Avatar" src="Avatar.png" alt="Avatar" class="avatar">
-								</div-->
-								
-								<img id="Avatar" src="img/Avatar.png" alt="Avatar" class="avatar">
-								<div id="info_holder">
-									</br>
-									</br>
-									<input style="display:none;" name="submitType" value="login">
-									<label>Username</label>
-									<input class="formInput" type="text" placeholder="Enter Username" name="usr" required>
-									</br>
-									</br>
-									<label>Password</label>
-									<input class="formInput" type="password" placeholder="Enter Password" name="pass" required>
-									</br>
-									</br>
-									<input type="checkbox" checked="checked"> Remember me
-									<input type="submit">
-								</div>
-							</form>
-					   </div>
-                    </div>
-                </div>
+
+<div class="intro-header">
+	<div class="container">
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Andrew Liu</h3>
             </div>
-
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" width="120" src="img/team//Andrew.jpg" class="img-circle" width="150" > </div>
+					<div class=" col-md-9 col-lg-9 "> 
+					<fieldset class="rating">
+    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+</fieldset>					  
+					  <table class="table table-user-information">
+						<tbody>
+						  
+						  
+						  
+						  <tr>
+							<td>Goals:</td>
+							<td><span class="blockSkills">Save </span></td>
+						  </tr>
+						  <tr>
+							<td>Date of Birth</td>
+							<td>12/28/1995</td>
+						  </tr>
+					   
+							 <tr>
+								 <tr>
+							<td>Gender</td>
+							<td>Male</td>
+						  </tr>
+							<tr>
+							<td>Calories consumed:</td>
+							<td><span class="blockSkills">Video Editing</span></br></br><span class="blockSkills">Sound Editing</span></td>
+						  </tr>
+						  <tr>
+							<td>Email</td>
+							<td><a href="mailto:info@support.com">andrew.liu2013@gmail.com</a></td>
+						  </tr>
+							<td>Phone Number</td>
+							<td>647-886-2299</td>
+	   
+						  </tr>
+						 
+						</tbody>
+					  </table>
+					</div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                  <a href="#profile3" class="btn btn-primary">My progress</a>                        
+					<a href="activityPage.html" class="btn btn-primary">Start Your Day</a>
+						<!--a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span-->
+                 </div>
+            </div>
+          </div>
         </div>
-        <!-- /.container -->
-
+      </div>
     </div>
-
-    <!-- Footer -->
+  
+ <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
@@ -144,8 +183,8 @@
             </div>
         </div>
     </footer>
-
-    <!-- jQuery -->
+	
+   <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -160,6 +199,9 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+	
+	
+	
 
 </body>
 
