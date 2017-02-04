@@ -35,6 +35,7 @@ function drop(ev) {
   } else {
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId" + (x++); /* We cannot use the same ID */
+    ev.target.appendChild(document.createTextNode(" "));
   	ev.target.appendChild(nodeCopy);
   }
 }
