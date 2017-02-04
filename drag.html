@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+    float: left;
+    width: 33%;
+    min-height: 60px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#div2 {
+    float: left;
+    width: 33%;
+    min-height: 20px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data=ev.dataTransfer.getData("text");
+	/* If you use DOM manipulation functions, their default behaviour it not to 
+     copy but to alter and move elements. By appending a ".cloneNode(true)", 
+     you will not move the original element, but create a copy. */
+	var nodeCopy = document.getElementById(data).cloneNode(true);
+	nodeCopy.id = "newId"; /* We cannot use the same ID */
+	ev.target.appendChild(nodeCopy);
+}
+
+function drop1(ev){
+	ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+	var el = document.getElementById(data);
+	el.parentNode.removeChild(el);
+}
+</script>
+
+</head>
+<body>
+
+<h2>Making your shopping list!!!</h2>
+<p>Drag the stuff you wanna buy back and forth between the two div elements.</p>
+
+<div id="div1" ondrop="drop1(event)" ondragover="allowDrop(event)">
+  <img src="try.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="30" height="30">
+  <img src="try.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="30" height="30">
+  
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+</div>
+
+</body>
+</html>
