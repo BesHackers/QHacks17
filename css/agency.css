@@ -226,7 +226,7 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 header {
-  background-image: url('../img/coverPhoto.jpg');
+  background-image: url('../img/sanfran.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -550,6 +550,7 @@ section h3.section-subheading {
 .team-member p {
   margin-top: 0;
 }
+
 aside.clients img {
   margin: 50px auto;
 }
@@ -744,3 +745,5 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
+
+
