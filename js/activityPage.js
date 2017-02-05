@@ -1,37 +1,57 @@
-const data = {
-  "Eggs (12)": {
-    calories: 936,
-  },
-  "Milk (1L)": {
-    calories: 436,
-  },
-  "Bread (1 Loaf)": {
-    calories: 1786,
-  },
-};
+moveBarStart = 0; // Naughty global
+
+data = JSON.parse(localStorage.getItem("items"));
+if(data == null) {
+  data = {
+    "Eggs (12)": {
+      calories: 936,
+      count: 0,
+    },
+    "Milk (1L)": {
+      calories: 436,
+      count: 0,
+    },
+    "Bread (1 Loaf)": {
+      calories: 1786,
+      count: 0,
+    },
+  };
+}
+
+goal = document.querySelector("#goal");
+goal.value = localStorage.getItem("goal");
+goal.addEventListener("change", function(event) {
+  updateItems();
+});
 
 grocery_list = document.querySelector("#grocery_list");
 for(name in data) {
   var list_item = document.createElement("div");
+  list_item.dataset.name = name;
   list_item.dataset.calories = data[name].calories;
   list_item.appendChild(document.createTextNode(name));
   var input = document.createElement("input");
   input.class = "count";
   input.type = "number";
   list_item.appendChild(input);
-  input.value = 0;
+  input.value = data[name].count;
   input.onchange = function(event) {
     updateItems();
   };
   grocery_list.appendChild(list_item);
 }
 
+updateItems();
+
 function updateItems() {
   var sum = 0;
   for(el of grocery_list.children) {
-    sum += el.childNodes[1].value * el.dataset.calories;
+    data[el.dataset.name].count = el.childNodes[1].value;
+    sum += data[el.dataset.name].count * el.dataset.calories;
   }
+  localStorage.setItem("items", JSON.stringify(data));
   var goal = document.querySelector("#goal").value;
+  localStorage.setItem("goal", goal);
   moveBar(100 * sum / goal);
 }
 
@@ -94,7 +114,6 @@ function drop1(ev){
 
 }
 
-moveBarStart = 0;
 function moveBar(end){
     var direction;
 
