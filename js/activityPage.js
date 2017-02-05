@@ -15,6 +15,10 @@ if(data == null) {
       calories: 1786,
       count: 0,
     },
+    "Bread (2 Loaf)": {
+      calories: 1786*2,
+      count: 0,
+    },
   };
 }
 
@@ -128,16 +132,17 @@ function moveBar(end){
 
     //Animation
     function frame() {
+        moveBarStart = end;
         if (currentState < target && direction > 0){
             currentState += direction;
         }else if (currentState > target && direction < 0) {
             currentState += direction;
         } else {
             clearInterval(id);
+            currentState = target;
         }
 
         innerBar.style.width = currentState + '%';
         document.getElementById("label").innerHTML = currentState + '%';
 	}
-  moveBarStart = end;
 }
