@@ -7,10 +7,26 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 <!-- PUT LOGIN PAGE HERE -->
 LOGIN_PAGE
 <form action="login.php" method="post">
-  <input type="hidden" name="action" value="login"></input>
-  <input type="input" name="username"></input>
-  <input type="input" name="password"></input>
-  <input type="submit" name="Login"></input>
+ <!--div id="AvatarHolder">
+									<img id="Avatar" src="Avatar.png" alt="Avatar" class="avatar">
+								</div-->
+								
+								<img id="Avatar" src="img/Avatar.png" alt="Avatar" class="avatar">
+								<div id="info_holder">
+									</br>
+									</br>
+									<input  style="display:none;" name="submitType" value="login">
+									<label>Username</label>
+									<input class="formInput" type="text" placeholder="Enter Username" name="usr" required>
+									</br>
+									</br>
+									<label>Password</label>
+									<input class="formInput" type="password" placeholder="Enter Password" name="pass" required>
+									</br>
+									</br>
+									<input type="checkbox" checked="checked"> Remember me
+									<input type="submit" name="Login">
+								</div>
 </form>
 <?PHP
   } else {
