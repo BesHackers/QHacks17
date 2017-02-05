@@ -41,20 +41,24 @@ function AddItem() {
     count: 0,
   };
   updateGroceryList();
+  updateItems();
 }
 
 function updateGroceryList() {
   grocery_list = document.querySelector("#grocery_list");
   grocery_list.innerHTML = "";
   for(name in data) {
-    var row = document.createElement("tr");
-    var d1 = document.createElement("td");
-    var d2 = document.createElement("td");
+    var row = document.createElement("div");
+    row.className = "row";
+    var d1 = document.createElement("div");
+    d1.className = "col-md-6 text-center";
+    var d2 = document.createElement("div");
+    d2.className = "col-md-6 text-center";
     row.dataset.name = name;
     row.dataset.calories = data[name].calories;
     d1.appendChild(document.createTextNode(name));
     var input = document.createElement("input");
-    input.class = "count";
+    input.className = "count";
     input.type = "number";
     input.onchange = function(event) {
       updateItems();
