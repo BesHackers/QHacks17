@@ -37,18 +37,8 @@ function drop(ev) {
     nodeCopy.id = "newId" + (x++); /* We cannot use the same ID */
     ev.target.appendChild(document.createTextNode(" "));
   	ev.target.appendChild(nodeCopy);
-	var elem = document.getElementById("myBar");   
-	var width = 10;
-	var id = setInterval(frame, 10);
-	function frame() {
-		if (width >= 100) {
-			clearInterval(id);
-		} else {
-			width++; 
-			elem.style.width = width + '%'; 
-			document.getElementById("label").innerHTML = width * 1  + '%';
-		}
-	}
+	
+    moveBar();
   }
 }
 
@@ -62,18 +52,39 @@ function drop1(ev){
     var data = ev.dataTransfer.getData("element_id");
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
+    
+    moveBar()
 	
-    var myProgressElement = document.getElementById("myBar");   
-	var width = 100;
-	var id = setInterval(frame, 10);
-	function frame() {
-    if (width <= 10) {
-      clearInterval(id);
-    } else {
-      width--; 
-      myProgressElement.style.width = width + '%'; 
-      document.getElementById("label").innerHTML = width * 1  + '%';
-    }
-	}
 }
 
+function moveBar(percentage){
+    var innerBar = document.getElementById("myBar");   
+	var width = 100;
+	var id = setInterval(frame, 10);
+	
+    //Animation 
+    function frame() {
+        if (width <= 10) {
+            clearInterval(id);
+        } else {
+            width--; 
+            innerBar.style.width = width + '%'; 
+            document.getElementById("label").innerHTML = width * 1  + '%';
+        }
+	}
+    /*
+    var innerBar = document.getElementById("myBar");   
+	var width = 10;
+	var id = setInterval(frame, 10);
+	function frame() {
+		if (width >= 100) {
+			clearInterval(id);
+		} else {
+			width++; 
+			elem.style.width = width + '%'; 
+			document.getElementById("label").innerHTML = width * 1  + '%';
+		}
+	}
+    */
+    
+}
