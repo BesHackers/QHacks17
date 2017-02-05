@@ -16,7 +16,7 @@ for(name in data) {
   list_item.dataset.calories = data[name].calories;
   list_item.appendChild(document.createTextNode(name));
   var input = document.createElement("input");
-  input.name = "count";
+  input.class = "count";
   input.type = "number";
   list_item.appendChild(input);
   input.value = 0;
@@ -29,9 +29,10 @@ for(name in data) {
 function updateItems() {
   var sum = 0;
   for(el of grocery_list.children) {
-    sum += el.count.value * el.dataset.calories;
+    sum += el.childNodes[1].value * el.dataset.calories;
   }
-  console.log(sum);
+  var goal = document.querySelector("#goal").value;
+  moveBar(100 * sum / goal);
 }
 
 function setProgressBar(value, total) {
@@ -72,9 +73,9 @@ function drop(ev) {
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId" + (x++); /* We cannot use the same ID */
     ev.target.appendChild(document.createTextNode(" "));
-  	ev.target.appendChild(nodeCopy);
-	console.log("GOING TO THE GAME!");
-    moveBar(10, 100);
+    ev.target.appendChild(nodeCopy);
+    console.log("GOING TO THE GAME!");
+    moveBar(100);
   }
 }
 
@@ -89,17 +90,18 @@ function drop1(ev){
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
     console.log("GOING HOME");
-    moveBar(100, 20)
+    moveBar(20)
 
 }
 
-function moveBar(start, end){
+moveBarStart = 0;
+function moveBar(end){
     var direction;
 
-    if (start < end) direction = 1;
-    if (start > end) direction = -1;
+    if (moveBarStart < end) direction = 1;
+    if (moveBarStart > end) direction = -1;
 
-    var currentState = start;
+    var currentState = moveBarStart;
     var target = end;
 
     var innerBar = document.getElementById("myBar");
@@ -118,4 +120,5 @@ function moveBar(start, end){
         innerBar.style.width = currentState + '%';
         document.getElementById("label").innerHTML = currentState + '%';
 	}
+  moveBarStart = end;
 }
