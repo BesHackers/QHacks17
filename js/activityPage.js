@@ -53,16 +53,17 @@ function drop(ev) {
 }
 
 function drop1(ev){
-  ev.preventDefault();
-  // Don't allow drags to the same box
-  if(ev.target.id == ev.dataTransfer.getData("parent_id")) {
-    return;
-  }
+    ev.preventDefault();
+    // Don't allow drags to the same box
+    if(ev.target.id == ev.dataTransfer.getData("parent_id")) {
+        return;
+    }
 
-  var data = ev.dataTransfer.getData("element_id");
+    var data = ev.dataTransfer.getData("element_id");
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
-	var elem = document.getElementById("myProgress");   
+	
+    var myProgressElement = document.getElementById("myBar");   
 	var width = 100;
 	var id = setInterval(frame, 10);
 	function frame() {
@@ -70,7 +71,7 @@ function drop1(ev){
       clearInterval(id);
     } else {
       width--; 
-      elem.style.width = width + '%'; 
+      myProgressElement.style.width = width + '%'; 
       document.getElementById("label").innerHTML = width * 1  + '%';
     }
 	}
