@@ -166,6 +166,11 @@ function moveBar(end){
             clearInterval(id);
             currentState = target;
         }
+        if(currentState > 100) {
+          innerBar.style.background = "red";
+        } else {
+          innerBar.style.background = "";
+        }
 
         innerBar.style.width = currentState + '%';
         document.getElementById("label").innerHTML = currentState + '%';
