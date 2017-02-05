@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <!-- metadata -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,20 +13,16 @@
 
 	<!-- custom css -->
 	<link href="css/activityPage.css" rel="stylesheet">
-
-  <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/agency.min.css" rel="stylesheet">
 	<link href="css/agency.css" rel="stylesheet">
-	
-  <!-- Custom Fonts -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
 
   <!-- Scripts -->
@@ -38,7 +34,6 @@
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
@@ -65,15 +60,16 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 text-center">
-
-				<h1 class="section-heading"> Goal: <input></input>
+				<h1 class="section-heading"> Goal: <input id="goal"></input>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<h2>JavaScript Progress Bar:</h2>
 					<div id="myProgress">
-					<div id="myBar"></div>
+                        <div id="myBar">
+                            <div id="label">10%</div>
+                        </div>
 					</div>
 			</div>
 		</div>
@@ -85,12 +81,13 @@
         <img src="img/header-bg.jpg" draggable="true" ondragstart="drag(event)" id="drag2" width="30" height="30">
       </div>
       <div id="div2" class="box col-md-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+      </div>
+      <div id="grocery_list">
       </div>
 		</div>
     <br>
   </div>
-<<<<<<< HEAD
 </div>
 
 </body>
-

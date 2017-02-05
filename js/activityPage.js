@@ -1,3 +1,40 @@
+const data = {
+  "Eggs (12)": {
+    calories: 936,
+  },
+  "Milk (1L)": {
+    calories: 436,
+  },
+  "Bread (1 Loaf)": {
+    calories: 1786,
+  },
+};
+
+grocery_list = document.querySelector("#grocery_list");
+for(name in data) {
+  var list_item = document.createElement("div");
+  list_item.dataset.calories = data[name].calories;
+  list_item.appendChild(document.createTextNode(name));
+  var input = document.createElement("input");
+  input.class = "count";
+  input.type = "number";
+  list_item.appendChild(input);
+  input.value = 0;
+  input.onchange = function(event) {
+    updateItems();
+  };
+  grocery_list.appendChild(list_item);
+}
+
+function updateItems() {
+  var sum = 0;
+  for(el of grocery_list.children) {
+    sum += el.childNodes[1].value * el.dataset.calories;
+  }
+  var goal = document.querySelector("#goal").value;
+  moveBar(100 * sum / goal);
+}
+
 function setProgressBar(value, total) {
   document.querySelector("#myBar").style.width = (value/total)*100 + "%";
 }
@@ -36,18 +73,52 @@ function drop(ev) {
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId" + (x++); /* We cannot use the same ID */
     ev.target.appendChild(document.createTextNode(" "));
-  	ev.target.appendChild(nodeCopy);
+    ev.target.appendChild(nodeCopy);
+    console.log("GOING TO THE GAME!");
+    moveBar(100);
   }
 }
 
 function drop1(ev){
-  ev.preventDefault();
-  // Don't allow drags to the same box
-  if(ev.target.id == ev.dataTransfer.getData("parent_id")) {
-    return;
-  }
+    ev.preventDefault();
+    // Don't allow drags to the same box
+    if(ev.target.id == ev.dataTransfer.getData("parent_id")) {
+        return;
+    }
 
-  var data = ev.dataTransfer.getData("element_id");
+    var data = ev.dataTransfer.getData("element_id");
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
+    console.log("GOING HOME");
+    moveBar(20)
+
+}
+
+moveBarStart = 0;
+function moveBar(end){
+    var direction;
+
+    if (moveBarStart < end) direction = 1;
+    if (moveBarStart > end) direction = -1;
+
+    var currentState = moveBarStart;
+    var target = end;
+
+    var innerBar = document.getElementById("myBar");
+	var id = setInterval(frame, 10);
+
+    //Animation
+    function frame() {
+        if (currentState < target && direction > 0){
+            currentState += direction;
+        }else if (currentState > target && direction < 0) {
+            currentState += direction;
+        } else {
+            clearInterval(id);
+        }
+
+        innerBar.style.width = currentState + '%';
+        document.getElementById("label").innerHTML = currentState + '%';
+	}
+  moveBarStart = end;
 }
