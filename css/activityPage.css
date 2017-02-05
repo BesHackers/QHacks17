@@ -43,4 +43,10 @@ img[draggable=true] {
 
 .boxSize {
 	padding:20px;
+	margin:100px;
+}
+
+.boxSize input{
+	padding:20px;
+	margin:100px;
 }
