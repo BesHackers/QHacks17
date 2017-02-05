@@ -87,20 +87,37 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<div class="col-md-12 text-center">,
 				<h2>Calorie Progress Bar:</h2>
 					<div id="myProgress">
                         <div id="myBar">
-                            <div id="label">10%</div>
+                            <div id="label">0%</div>
                         </div>
 					</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-6 text-center">
+				<h1 class="section-heading"> Food List </h1>
+			</div>
+			<div class="col-md-6 text-center">
+				<h1 class="section-heading"> Amount </h1>
+			</div>
     <div id="grocery_list">
     </div>
-    <input id="new_name"></input>
-    <input id="new_calorie" type="Number"></input>
-    <input id="new_button" type="button" value="Submit" onclick="AddItem()"></input>
+	
+  <div class="row">
+
+	<h1 class="section-heading text-center"> New Addition </h1>
+	<div class="row">
+		<div class="boxSize">
+	 <input id="new_name" class="col-md-6 text-center"></input>
+		</div>
+		<div class="boxSize">
+	     <input id="new_calorie" class="col-md-6 text-center" type="Number"></input>
+	</div>
+	</div>
+    <input class="text-center"id="new_button" type="button" value="Submit" onclick="AddItem()"></input>
     <br>
   </div>
 </div>

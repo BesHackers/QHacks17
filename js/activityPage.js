@@ -52,11 +52,14 @@ function updateGroceryList() {
     row.className = "row";
     var d1 = document.createElement("div");
     d1.className = "col-md-6 text-center";
+
+
     var d2 = document.createElement("div");
     d2.className = "col-md-6 text-center";
+
     row.dataset.name = name;
     row.dataset.calories = data[name].calories;
-    d1.appendChild(document.createTextNode(name));
+   
     var input = document.createElement("input");
     input.className = "count";
     input.type = "number";
@@ -64,7 +67,9 @@ function updateGroceryList() {
       updateItems();
     };
     input.value = data[name].count;
-    d2.appendChild(input);
+
+	d1.appendChild(document.createTextNode(name));
+	d2.appendChild(input);
     row.appendChild(d1);
     row.appendChild(d2);
     grocery_list.appendChild(row);

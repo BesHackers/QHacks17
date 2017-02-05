@@ -40,3 +40,7 @@ img[draggable=true] {
     padding: 15px;
     min-height: 100px !important;
 }
+
+.boxSize {
+	padding:20px;
+}
