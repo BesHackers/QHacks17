@@ -1,3 +1,39 @@
+const data = {
+  "Eggs (12)": {
+    calories: 936,
+  },
+  "Milk (1L)": {
+    calories: 436,
+  },
+  "Bread (1 Loaf)": {
+    calories: 1786,
+  },
+};
+
+grocery_list = document.querySelector("#grocery_list");
+for(name in data) {
+  var list_item = document.createElement("div");
+  list_item.dataset.calories = data[name].calories;
+  list_item.appendChild(document.createTextNode(name));
+  var input = document.createElement("input");
+  input.name = "count";
+  input.type = "number";
+  list_item.appendChild(input);
+  input.value = 0;
+  input.onchange = function(event) {
+    updateItems();
+  };
+  grocery_list.appendChild(list_item);
+}
+
+function updateItems() {
+  var sum = 0;
+  for(el of grocery_list.children) {
+    sum += el.count.value * el.dataset.calories;
+  }
+  console.log(sum);
+}
+
 function setProgressBar(value, total) {
   document.querySelector("#myBar").style.width = (value/total)*100 + "%";
 }
@@ -54,32 +90,32 @@ function drop1(ev){
 	el.parentNode.removeChild(el);
     console.log("GOING HOME");
     moveBar(100, 20)
-	
+
 }
 
 function moveBar(start, end){
     var direction;
-    
+
     if (start < end) direction = 1;
     if (start > end) direction = -1;
-    
+
     var currentState = start;
     var target = end;
-    
+
     var innerBar = document.getElementById("myBar");
 	var id = setInterval(frame, 10);
-    
-    //Animation 
+
+    //Animation
     function frame() {
         if (currentState < target && direction > 0){
-            currentState += direction;        
+            currentState += direction;
         }else if (currentState > target && direction < 0) {
             currentState += direction;
         } else {
             clearInterval(id);
         }
-        
-        innerBar.style.width = currentState + '%'; 
+
+        innerBar.style.width = currentState + '%';
         document.getElementById("label").innerHTML = currentState + '%';
 	}
 }
