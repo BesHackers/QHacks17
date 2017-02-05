@@ -53,29 +53,27 @@ function drop1(ev){
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
     console.log("GOING HOME");
-    moveBar(100, 10)
+    moveBar(100, 20)
 	
 }
 
-function moveBar(startPercent, endPercent){
+function moveBar(start, end){
     var direction;
     
-    if (startPercent < endPercent){  //0 to 100
-        direction = 1;
-    }else{
-        direction = -1;
-    }
-    var currentState = startPercent;
-    var target = endPercent;
+    if (start < end) direction = 1;
+    if (start > end) direction = -1;
+    
+    var currentState = start;
+    var target = end;
+    
     var innerBar = document.getElementById("myBar");
 	var id = setInterval(frame, 10);
     
     //Animation 
     function frame() {
-        console.log("pew!" + currentState + "|" + direction + "|" + target);
         if (currentState < target && direction > 0){
             currentState += direction;        
-        } else if (currentState > target && direction < 0) {
+        }else if (currentState > target && direction < 0) {
             currentState += direction;
         } else {
             clearInterval(id);
