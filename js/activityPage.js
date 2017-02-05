@@ -37,8 +37,8 @@ function drop(ev) {
     nodeCopy.id = "newId" + (x++); /* We cannot use the same ID */
     ev.target.appendChild(document.createTextNode(" "));
   	ev.target.appendChild(nodeCopy);
-	
-    moveBar();
+	console.log("GOING TO THE GAME!");
+    moveBar(10, 100);
   }
 }
 
@@ -52,39 +52,36 @@ function drop1(ev){
     var data = ev.dataTransfer.getData("element_id");
 	var el = document.getElementById(data);
 	el.parentNode.removeChild(el);
-    
-    moveBar()
+    console.log("GOING HOME");
+    moveBar(100, 10)
 	
 }
 
-function moveBar(percentage){
-    var innerBar = document.getElementById("myBar");   
-	var width = 100;
+function moveBar(startPercent, endPercent){
+    var direction;
+    
+    if (startPercent < endPercent){  //0 to 100
+        direction = 1;
+    }else{
+        direction = -1;
+    }
+    var currentState = startPercent;
+    var target = endPercent;
+    var innerBar = document.getElementById("myBar");
 	var id = setInterval(frame, 10);
-	
+    
     //Animation 
     function frame() {
-        if (width <= 10) {
-            clearInterval(id);
+        console.log("pew!" + currentState + "|" + direction + "|" + target);
+        if (currentState < target && direction > 0){
+            currentState += direction;        
+        } else if (currentState > target && direction < 0) {
+            currentState += direction;
         } else {
-            width--; 
-            innerBar.style.width = width + '%'; 
-            document.getElementById("label").innerHTML = width * 1  + '%';
+            clearInterval(id);
         }
+        
+        innerBar.style.width = currentState + '%'; 
+        document.getElementById("label").innerHTML = currentState + '%';
 	}
-    /*
-    var innerBar = document.getElementById("myBar");   
-	var width = 10;
-	var id = setInterval(frame, 10);
-	function frame() {
-		if (width >= 100) {
-			clearInterval(id);
-		} else {
-			width++; 
-			elem.style.width = width + '%'; 
-			document.getElementById("label").innerHTML = width * 1  + '%';
-		}
-	}
-    */
-    
 }
