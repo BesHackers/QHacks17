@@ -28,29 +28,50 @@ goal.addEventListener("change", function(event) {
   updateItems();
 });
 
-grocery_list = document.querySelector("#grocery_list");
-for(name in data) {
-  var list_item = document.createElement("div");
-  list_item.dataset.name = name;
-  list_item.dataset.calories = data[name].calories;
-  list_item.appendChild(document.createTextNode(name));
-  var input = document.createElement("input");
-  input.class = "count";
-  input.type = "number";
-  list_item.appendChild(input);
-  input.value = data[name].count;
-  input.onchange = function(event) {
-    updateItems();
-  };
-  grocery_list.appendChild(list_item);
-}
-
+updateGroceryList();
 updateItems();
 
+function AddItem() {
+  name = document.querySelector("#new_name").value;
+  document.querySelector("#new_name").value = "";
+  calorie = document.querySelector("#new_calorie").value;
+  document.querySelector("#new_calorie").value = 0;
+  data[name] = {
+    calories: calorie,
+    count: 0,
+  };
+  updateGroceryList();
+}
+
+function updateGroceryList() {
+  grocery_list = document.querySelector("#grocery_list");
+  grocery_list.innerHTML = "";
+  for(name in data) {
+    var row = document.createElement("tr");
+    var d1 = document.createElement("td");
+    var d2 = document.createElement("td");
+    row.dataset.name = name;
+    row.dataset.calories = data[name].calories;
+    d1.appendChild(document.createTextNode(name));
+    var input = document.createElement("input");
+    input.class = "count";
+    input.type = "number";
+    input.onchange = function(event) {
+      updateItems();
+    };
+    input.value = data[name].count;
+    d2.appendChild(input);
+    row.appendChild(d1);
+    row.appendChild(d2);
+    grocery_list.appendChild(row);
+  }
+}
+
 function updateItems() {
+  grocery_list = document.querySelector("#grocery_list");
   var sum = 0;
   for(el of grocery_list.children) {
-    data[el.dataset.name].count = el.childNodes[1].value;
+    data[el.dataset.name].count = el.childNodes[1].childNodes[0].value;
     sum += data[el.dataset.name].count * el.dataset.calories;
   }
   localStorage.setItem("items", JSON.stringify(data));
